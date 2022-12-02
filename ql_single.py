@@ -23,8 +23,8 @@ if __name__ == '__main__':
     experiment_time = str(datetime.now()).split('_')[0]
     output = 'output.csv'
 
-    environment = SumoEnvironment(net_file='Kilis_static.net.xml',
-                                route_file='episode_routes.rou.xml',
+    environment = SumoEnvironment(net_file='single-intersection.net.xml',
+                                route_file='single-intersection-vhvh.rou.xml',
                                 out_csv_name=output,use_gui=True,
                                 num_seconds=76000,min_green=8,max_green=50)
     
