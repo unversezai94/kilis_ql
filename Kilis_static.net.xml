@@ -4,11 +4,11 @@
 <configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/netconvertConfiguration.xsd">
 
     <input>
-        <sumo-net-file value="C:\Users\Pc\Desktop\mosas-projesi-master\Kilis%204\Kilis_static.net.xml"/>
+        <sumo-net-file value="Kilis_static.net.xml"/>
     </input>
 
     <output>
-        <output-file value="C:\Users\Pc\Desktop\mosas-projesi-master\Kilis%204\Kilis_static.net.xml"/>
+        <output-file value="Kilis_static.net.xml"/>
     </output>
 
     <processing>
@@ -16,18 +16,13 @@
         <geometry.max-grade.fix value="false"/>
         <offset.disable-normalization value="true"/>
         <lefthand value="false"/>
-    </processing>
-
-    <junctions>
         <no-turnarounds value="true"/>
         <junctions.corner-detail value="0"/>
         <junctions.limit-turn-speed value="-1"/>
         <rectangular-lane-cut value="false"/>
-    </junctions>
+    </processing>
 
-    <pedestrian>
-        <walkingareas value="false"/>
-    </pedestrian>
+
 
 </configuration>
 -->
