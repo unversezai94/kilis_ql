@@ -3,7 +3,7 @@ import sys
 from datetime import datetime
 import traci
 from sumo_rl import SumoEnvironment
-from sumo_rl.agents import QLAgent
+from sumo_rl.agents import Agent
 from sumo_rl.exploration import EpsilonGreedy
 
 if 'SUMO_HOME' in os.environ:
@@ -21,20 +21,20 @@ if __name__ == '__main__':
     decay_rate = 0.995
     episode = 1
     experiment_time = str(datetime.now()).split('_')[0]
-    output = 'output.csv'
+    output = 'outputs/kilis_output.csv'
 
-    environment = SumoEnvironment(net_file='single-intersection.net.xml',
-                                route_file='single-intersection-vhvh.rou.xml',
+    environment = SumoEnvironment(net_file='nets/Kilis_static.net.xml',
+                                route_file='nets/kilis-deneme_1.rou.xml',
                                 out_csv_name=output,use_gui=True,
-                                num_seconds=76000,min_green=8,max_green=50)
+                                num_seconds=90000,min_green=8,max_green=50)
     
     for eps in range(1,episode+1):
         beginning_state = environment.reset()
-        agent = {ts: QLAgent(starting_state=environment.encode(beginning_state[ts],ts),
+        agent = {ts: Agent(starting_state=environment.encode(beginning_state[ts],ts),
                             state_space=environment.observation_space,
                             action_space=environment.action_space,
-                            alpha=learning_rate,
-                            gamma=discount_factor,
+                            learning_rate=learning_rate,
+                            discount_factor=discount_factor,
                             exploration_strategy=EpsilonGreedy(initial_epsilon=max_eps, min_epsilon=min_eps, decay=decay_rate)) for ts in environment.ts_ids}
         
         done = {'__all__': False}

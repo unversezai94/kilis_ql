@@ -86,18 +86,18 @@ def get_context(begin, end, c):
 def write_route_file(file, end, step):
     with open(file, 'w+') as f:
         f.write('''<routes>
-                <route id="route_ns" edges="n_t t_s"/>
-                <route id="route_nw" edges="n_t t_w"/>
-                <route id="route_ne" edges="n_t t_e"/>
-                <route id="route_we" edges="w_t t_e"/>
-                <route id="route_wn" edges="w_t t_n"/>
-                <route id="route_ws" edges="w_t t_s"/>
-                <route id="route_ew" edges="e_t t_w"/>
-                <route id="route_en" edges="e_t t_n"/>
-                <route id="route_es" edges="e_t t_s"/>
-                <route id="route_sn" edges="s_t t_n"/>
-                <route id="route_se" edges="s_t t_e"/>
-                <route id="route_sw" edges="s_t t_w"/>''')
+                <route id="route_ns" edges="3 2"/>
+                <route id="route_nw" edges="3 8"/>
+                <route id="route_ne" edges="3 6"/>
+                <route id="route_we" edges="7 6"/>
+                <route id="route_wn" edges="7 4"/>
+                <route id="route_ws" edges="7 2"/>
+                <route id="route_ew" edges="5 8"/>
+                <route id="route_en" edges="5 4"/>
+                <route id="route_es" edges="5 2"/>
+                <route id="route_sn" edges="1 4"/>
+                <route id="route_se" edges="1 6"/>
+                <route id="route_sw" edges="1 8"/>''')
 
         c = 0
         for i in range(0, end, step):
@@ -107,4 +107,4 @@ def write_route_file(file, end, step):
         f.write('''</routes>''')
 
 if __name__ == '__main__':
-    write_route_file('nets/2way-single-intersection/single-intersection-gen.rou.xml', 400000, 100000)
+    write_route_file('nets/kilis-deneme_1.rou.xml', 100000, 2000)
